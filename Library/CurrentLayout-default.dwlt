@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Inspector
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -103,7 +103,7 @@ MonoBehaviour:
   m_MinSize: {x: 911, y: 442}
   m_MaxSize: {x: 22006, y: 10021}
   vertical: 0
-  controlID: 17
+  controlID: 55
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_MinSize: {x: 201, y: 442}
   m_MaxSize: {x: 4001, y: 8042}
   vertical: 1
-  controlID: 86
+  controlID: 103
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -309,6 +309,7 @@ MonoBehaviour:
   m_ViewTransforms:
     m_KeySerializationHelper:
     - {fileID: -3763078404097974715, guid: b0ffdd10b3a50ec4e8e8995cc0e2556d, type: 2}
+    - {fileID: 110700000, guid: e84485f8fbe90d14bb7b225a6ad7aa62, type: 2}
     m_ValueSerializationHelper:
     - e00: 0.1978804
       e01: 0
@@ -318,6 +319,22 @@ MonoBehaviour:
       e11: 0.1978804
       e12: 0
       e13: 202.64511
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    - e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
       e20: 0
       e21: 0
       e22: 1
@@ -372,7 +389,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: bef9ffff
+      m_ExpandedIDs: 020cffff4844ffff8049ffff52fbffff0c380100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -471,22 +488,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Particles/Particle Ribbon by Moonflower Carnivore
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/Particles/Particle Ribbon by Moonflower Carnivore
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\FusionSoftware\Desktop\RPG
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 543e0000
-    m_LastClickedID: 15956
-    m_ExpandedIDs: 00000000543e0000563e0000583e00005a3e00005c3e00005e3e0000603e0000623e0000643e000000ca9a3b
+    m_SelectedIDs: 8e3e0000
+    m_LastClickedID: 16014
+    m_ExpandedIDs: 00000000543e0000563e0000583e00005a3e00005c3e00005e3e0000603e0000623e0000643e0000803e0000924d0000702901007429010000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -542,7 +559,7 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 0
-    m_ExpandedInstanceIDs: 5a4e0000f87d0000
+    m_ExpandedInstanceIDs: 5a4e0000f87d0000863c0000f8290100
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -695,9 +712,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -1.5635405, y: 0.55472577, z: -1.1498957}
+    m_Target: {x: 21.094173, y: -3.335814, z: 30.762857}
     speed: 2
-    m_Value: {x: -1.5635405, y: 0.55472577, z: -1.1498957}
+    m_Value: {x: 21.094173, y: -3.335814, z: 30.762857}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -744,13 +761,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.009719399, y: -0.979562, z: 0.048832387, w: -0.19494754}
+    m_Target: {x: -0.06272504, y: -0.32201913, z: 0.021360036, w: -0.94441307}
     speed: 2
-    m_Value: {x: -0.009719276, y: -0.9795496, z: 0.04883177, w: -0.19494508}
+    m_Value: {x: -0.06297674, y: -0.31066278, z: 0.020605784, w: -0.94820774}
   m_Size:
-    m_Target: 17.88722
+    m_Target: 21.326372
     speed: 2
-    m_Value: 17.88722
+    m_Value: 20.408012
   m_Ortho:
     m_Target: 0
     speed: 2

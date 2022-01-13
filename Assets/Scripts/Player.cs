@@ -4,19 +4,62 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private int moveSpeed = 3;
     [SerializeField]
     private Animator animator;
 
+    [SerializeField]
+    private GameObject magic;
+    [SerializeField]
+    private GameObject shootingPoint;
+    [SerializeField]
+    private GameObject particle;
+
+
+
+    private float moveSpeed = 3f;
+    private float rotateSpeed = 3f;
+
     private bool isMove = true;
+    private bool isTrigger = false;
+
+    private float h;
+    private float v;
 
     private void Start()
     {
-        animator= GetComponent<Animator>();
+        animator = GetComponent<Animator>();
+        //particle.GetComponent<ParticleSystem>();
     }
 
     private void Update()
     {
+
+        Move();
+
+        Fire();
+
+        Rotate();
+
+
+    }
+
+    private void Move()
+    {
+        h = Input.GetAxis("Horizontal");
+        v = Input.GetAxis("Vertical");
+        if(isMove == true)
+        {
+            transform.Translate(new Vector3(h,0,v) * Time.deltaTime * moveSpeed);
+        }
+
+        if (h != 0 || v != 0)
+        {
+            animator.SetBool("isWalk", true);
+
+        }
+        else
+            animator.SetBool("isWalk", false);
+
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Fire"))
         {
             isMove = false;
@@ -24,31 +67,44 @@ public class Player : MonoBehaviour
         else
             isMove = true;
 
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
+    }
 
-        if(h != 0 || v != 0)
-        {
-            animator.SetBool("isWalk", true);
-            
-        }
-        else
-            animator.SetBool("isWalk", false);
-
-
-        if(Input.GetMouseButtonDown(0))
-        {
-            animator.SetBool("isFire", true);
-        }
-        else
-            animator.SetBool("isFire", false);
-        
-        
+    private void Rotate()
+    {
         if(isMove == true)
         {
-            transform.Translate(h * Time.deltaTime * moveSpeed, 0, v * Time.deltaTime * moveSpeed);
+            transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X"), 0) * rotateSpeed);
         }
 
     }
 
+    private void Fire()
+    {
+        if (Input.GetMouseButtonDown(0) && (animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Walk") || animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Idle")))
+        {
+            InstParticle();
+            isTrigger = false;
+            animator.SetBool("isFire", true);
+
+        }
+        else
+            animator.SetBool("isFire", false);
+
+        if ((animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Fire") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.7f) && isTrigger == false)
+        {
+            DestroyParticle();
+            Instantiate(magic, shootingPoint.transform.position, transform.rotation);
+            isTrigger = true;
+        }
+    }
+
+    private void InstParticle()
+    {
+        Instantiate(particle, transform.position, Quaternion.identity);
+    }
+
+    private void DestroyParticle()
+    {
+        particle.GetComponent<ParticleSystem>().Stop();
+    }
 }
