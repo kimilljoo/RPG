@@ -14,12 +14,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject particle;
 
-
-
     private float moveSpeed = 3f;
-    private float rotateSpeed = 3f;
 
-    private bool isMove = true;
+    public bool isMove = true;
     private bool isTrigger = false;
 
     private float h;
@@ -73,7 +70,7 @@ public class Player : MonoBehaviour
     {
         if(isMove == true)
         {
-            transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X"), 0) * rotateSpeed);
+            transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X"), 0));
         }
 
     }
@@ -92,7 +89,6 @@ public class Player : MonoBehaviour
 
         if ((animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Fire") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.7f) && isTrigger == false)
         {
-            DestroyParticle();
             Instantiate(magic, shootingPoint.transform.position, transform.rotation);
             isTrigger = true;
         }
@@ -100,11 +96,9 @@ public class Player : MonoBehaviour
 
     private void InstParticle()
     {
-        Instantiate(particle, transform.position, Quaternion.identity);
+        GameObject effect = Instantiate(particle, new Vector3(transform.position.x, 1,transform.position.z), Quaternion.identity);
+        Destroy(effect, effect.GetComponent<ParticleSystem>().main.duration-3.0f);
     }
+    
 
-    private void DestroyParticle()
-    {
-        particle.GetComponent<ParticleSystem>().Stop();
-    }
 }
