@@ -11,10 +11,12 @@ public class Player : MonoBehaviour
     private GameObject magic;
     [SerializeField]
     private GameObject shootingPoint;
-    [SerializeField]
-    private GameObject particle;
 
-    private float moveSpeed = 3f;
+    private float Hp = 100f;
+
+    static public float atk = 1f;
+
+    private float moveSpeed = 4f;
 
     public bool isMove = true;
     private bool isTrigger = false;
@@ -25,19 +27,18 @@ public class Player : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
-        //particle.GetComponent<ParticleSystem>();
+    }
+
+    private void FixedUpdate()
+    {
+        Move();
     }
 
     private void Update()
     {
-
-        Move();
-
-        Fire();
-
         Rotate();
-
-
+        Fire();
+        
     }
 
     private void Move()
@@ -77,9 +78,8 @@ public class Player : MonoBehaviour
 
     private void Fire()
     {
-        if (Input.GetMouseButtonDown(0) && (animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Walk") || animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Idle")))
+        if (Input.GetMouseButtonDown(1) && (animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Walk") || animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Idle")))
         {
-            InstParticle();
             isTrigger = false;
             animator.SetBool("isFire", true);
 
@@ -94,11 +94,5 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void InstParticle()
-    {
-        GameObject effect = Instantiate(particle, new Vector3(transform.position.x, 1,transform.position.z), Quaternion.identity);
-        Destroy(effect, effect.GetComponent<ParticleSystem>().main.duration-3.0f);
-    }
-    
 
 }

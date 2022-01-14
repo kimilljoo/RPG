@@ -7,6 +7,6 @@ public class Cusor : MonoBehaviour
     private void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        //Cursor.visible = false;
+        Cursor.visible = false;
     }
 }
