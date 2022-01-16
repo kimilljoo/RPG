@@ -98,7 +98,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a221484482768484ba94472e9590bf6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
 --- !u!95 &95010028461246732
 Animator:
   serializedVersion: 3
@@ -158,6 +157,7 @@ GameObject:
   - component: {fileID: 27183471945433849}
   - component: {fileID: 3965242185377090476}
   - component: {fileID: 5167354692526355890}
+  - component: {fileID: 618564680822738008}
   - component: {fileID: 110210308723635910}
   m_Layer: 5
   m_Name: Canvas
@@ -230,6 +230,19 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 1
+--- !u!114 &618564680822738008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5739759012537648101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffe44d7c6f9f7f3459ccde6fe66dd60c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 0}
 --- !u!114 &110210308723635910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,7 +271,6 @@ GameObject:
   - component: {fileID: 11090966693153064}
   - component: {fileID: 2304419829518168800}
   - component: {fileID: 2048837881841584862}
-  - component: {fileID: 6674494425067767572}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -323,16 +335,3 @@ MonoBehaviour:
   m_FillOrigin: 1
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6674494425067767572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7549113974680234278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffe44d7c6f9f7f3459ccde6fe66dd60c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hpBar: {fileID: 0}

@@ -5,14 +5,18 @@ using UnityEngine.UI;
 
 public class HpBar : MonoBehaviour
 {
-    [SerializeField]
-    private Image hpBar;
-    
-    private void Update()
-    {
-        //hpBar.fillAmount = hpBar.fillAmount/Creature.Hp;
+    private Transform cam;
 
+    void Start()
+    {
+        cam = CameraManager.nowCamTransform;
     }
 
+    // Update is called once per frame
+    private void LateUpdate()
+    {
+        transform.LookAt(transform.position + cam.rotation * Vector3.forward, cam.rotation * Vector3.up);
+
+    }
 
 }
