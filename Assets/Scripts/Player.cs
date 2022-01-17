@@ -49,10 +49,22 @@ public class Player : MonoBehaviour
             transform.Translate(new Vector3(h,0,v) * Time.deltaTime * moveSpeed);
         }
 
+        if(Input.GetKeyDown(KeyCode.A))
+        {
+            animator.SetBool("isLeft", true);
+        }
+        else if(Input.GetKeyDown(KeyCode.D))
+        {
+            animator.SetBool("isRight", true);
+
+        }
+
         if (h != 0 || v != 0)
         {
             animator.SetBool("isWalk", true);
-
+            animator.SetBool("isLeft", false);
+            animator.SetBool("isRight", false);
+        
         }
         else
             animator.SetBool("isWalk", false);
