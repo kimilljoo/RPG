@@ -7,8 +7,10 @@ public abstract class Npc : MonoBehaviour
 {
     [SerializeField]
     private GameObject panel;
+    [SerializeField]
+    private GameObject questUi;
 
-    private bool isPanel = false;
+    protected bool isPanel = false;
 
 
     private void OnCollisionEnter(Collision collision)
@@ -39,14 +41,28 @@ public abstract class Npc : MonoBehaviour
 
     protected void Interaction()
     {
-        if (Input.GetKeyDown(KeyCode.E) && panel.activeSelf == false)
+        if (Input.GetKeyDown(KeyCode.F) && panel.activeSelf == false)
         {
             panel.SetActive(true);
+            CursorManager.isCursor = true;
+            
         }
         if(Input.GetKeyDown(KeyCode.Escape) && panel.activeSelf == true)
         {
             panel.SetActive(false);
+            CursorManager.isCursor = false;
         }
+    }
+
+    public void ClosePanel()
+    {
+        panel.SetActive(false);
+        CursorManager.isCursor = false;
+    }
+
+    public void SetQuest()
+    {
+        questUi.SetActive(true);
     }
 
     protected abstract void drawText();

@@ -6,7 +6,6 @@ public class Player : MonoBehaviour
 {
     [SerializeField]
     private Animator animator;
-
     [SerializeField]
     private GameObject magic;
     [SerializeField]

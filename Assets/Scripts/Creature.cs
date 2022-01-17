@@ -31,6 +31,10 @@ public abstract class Creature : MonoBehaviour
     {
         if(Hp <= 0.0f)
         {
+            if(NpcQuest.isQuest == false)
+                GameManager.duckKillCount++;
+
+            Debug.Log(GameManager.duckKillCount);
             Destroy(gameObject);
         }
     }
