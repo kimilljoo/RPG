@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
 
     static public float atk = 1f;
 
-    private float moveSpeed = 4f;
+    private float moveSpeed = 5f;
 
     public bool isMove = true;
     private bool isTrigger = false;
@@ -49,21 +49,9 @@ public class Player : MonoBehaviour
             transform.Translate(new Vector3(h,0,v) * Time.deltaTime * moveSpeed);
         }
 
-        if(Input.GetKeyDown(KeyCode.A))
-        {
-            animator.SetBool("isLeft", true);
-        }
-        else if(Input.GetKeyDown(KeyCode.D))
-        {
-            animator.SetBool("isRight", true);
-
-        }
-
         if (h != 0 || v != 0)
         {
             animator.SetBool("isWalk", true);
-            animator.SetBool("isLeft", false);
-            animator.SetBool("isRight", false);
         
         }
         else
@@ -100,9 +88,20 @@ public class Player : MonoBehaviour
 
         if ((animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Fire") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.7f) && isTrigger == false)
         {
+            //Skill();
             Instantiate(magic, shootingPoint.transform.position, transform.rotation);
             isTrigger = true;
         }
+    }
+
+    private void Skill()
+    {
+        for(int i = -50; i<151; i+=50)
+        {
+            GameObject bullet= Instantiate(magic, shootingPoint.transform.position, transform.rotation);
+            bullet.transform.Rotate(new Vector3(0,transform.rotation.y + i,0));
+        }
+
     }
 
 

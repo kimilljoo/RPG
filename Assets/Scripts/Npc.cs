@@ -60,12 +60,12 @@ public abstract class Npc : MonoBehaviour
         CursorManager.isCursor = false;
     }
 
-    public void SetQuest()
+    public void DrawQuest()
     {
         questUi.SetActive(true);
     }
 
-    protected abstract void drawText();
+    protected abstract void DrawText();
 
 
 }

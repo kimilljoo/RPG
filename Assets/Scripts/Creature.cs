@@ -31,10 +31,10 @@ public abstract class Creature : MonoBehaviour
     {
         if(Hp <= 0.0f)
         {
-            if(NpcQuest.isQuest == false)
-                GameManager.duckKillCount++;
-
-            Debug.Log(GameManager.duckKillCount);
+            if(GameManager.isQuest == true)
+                GameManager.curQuestkillCount++;
+            GiveExp();
+            Debug.Log(GameManager.curExp);
             Destroy(gameObject);
         }
     }
@@ -51,5 +51,6 @@ public abstract class Creature : MonoBehaviour
     protected abstract void Turn();
     protected abstract void MoveTime();
 
+    protected abstract void GiveExp();
 
 }

@@ -19,9 +19,15 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        duckKillCountText.text = "퀘스트: 오리 " + GameManager.duckKillCount.ToString() + "/ 10";
 
+        DrawQuest();
         showInventory();
+
+    }
+
+    private void DrawQuest()
+    {
+        duckKillCountText.text = "퀘스트: 오리 " + GameManager.curQuestkillCount.ToString() + "/ 10";
 
     }
 

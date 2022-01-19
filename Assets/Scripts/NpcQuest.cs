@@ -5,21 +5,41 @@ using UnityEngine;
 public class NpcQuest : MonoBehaviour
 { 
 
-    static public bool isQuest = false;
-
     private void Start()
     {
-        isQuest = false;
+        GameManager.isQuest = false;
     }
 
     private void Update()
     { 
-        if(GameManager.duckKillCount == 10)
-        {
-            isQuest = true;
-        }
 
+        
     }
 
+    public void SetQuest(ref int maxQuestKill, int changeMaxQuestKill)
+    {
+        maxQuestKill = changeMaxQuestKill;
+    }
+
+    public void CheckCompleteQuest()
+    {
+        if(GameManager.curQuestkillCount == GameManager.maxQuestKillCount)
+        {
+            GameManager.isCompleteQuest = true;
+            Debug.Log(GameManager.isCompleteQuest);
+        }
+    }
+
+
+    public void AcceptQuest()
+    {
+        GameManager.isQuest = true;
+    }
+
+    public void CancleQuest()
+    {
+        GameManager.isQuest = false;
+
+    }
 
 }

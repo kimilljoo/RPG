@@ -8,14 +8,14 @@ public class CowNpc : Npc
 {
     [SerializeField]
     private TMP_Text cowText;
-    protected override void drawText()
+    protected override void DrawText()
     {
         cowText.text = NpcText.text;
     }
 
     private void Update()
     {
-        drawText();
+        DrawText();
         if (isPanel == true)
         {
             Interaction();

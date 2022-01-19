@@ -5,6 +5,7 @@ using UnityEngine;
 public class Duck : Creature
 {
 
+    protected float exp = 1.0f;
     protected override void Move()
     {
         transform.Translate(Vector3.forward * Time.deltaTime * moveSpeed);
@@ -27,4 +28,10 @@ public class Duck : Creature
             Invoke("Turn", 1.0f);
         }
     }
+
+    protected override void GiveExp()
+    {
+        GameManager.curExp += exp;
+    }
+
 }
